@@ -16,7 +16,7 @@ get_header(); ?>
 
 	<div class="container">
 		<div class="row">
-			<div id="primary" class="content-area col-md-9 order-md-2">
+			<div id="primary" class="content-area col-md-8 order-md-2">
 				<main id="main" class="site-main p-2 bg-white" role="main">
 
 				<?php

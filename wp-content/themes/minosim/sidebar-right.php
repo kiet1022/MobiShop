@@ -7,7 +7,7 @@
  * @package MinoSim
  */
 ?>
-		<aside id="sidebar-right" class="widget-area col-md-3 order-md-3" role="complementary">
+		<aside id="sidebar-right" class="widget-area col-md-4 order-md-3" role="complementary">
 			<?php dynamic_sidebar( 'sidebar-right' ); ?>
 		</aside><!-- #sidebar-right -->
 	</div><!--  .row -->

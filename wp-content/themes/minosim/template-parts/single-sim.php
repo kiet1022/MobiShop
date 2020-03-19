@@ -12,7 +12,6 @@
 			</div>
 
 			<div class="col-md-12 vcenter sim-info mt-3">
-				
 				<table class="table table-bordered table-hover">
 				<tr>
 					<td>Sim số: </td>
@@ -41,6 +40,7 @@
 					<td>
 					<?php
 						$loaithuebao = get_post_field('loaithuebao', get_the_ID());
+						
 						if ($loaithuebao == 'tt') echo 'Trả trước';
 						elseif ($loaithuebao == 'ts') echo 'Trả sau';
 						else echo 'Không xác định';

@@ -16,12 +16,12 @@
                         <?php if (isset($_GET['nhamang'])): echo $_GET['nhamang']; else: echo 'Nhà mạng'; endif;?>
                             <ul id="loc-1">
                                 <li class="locnhamang" data-value="">Tất cả các mạng</li>
-                                <li class="locnhamang" data-value="viettel">viettel</li>
-                                <li class="locnhamang" data-value="vinaphone">vinaphone</li>
-                                <li class="locnhamang" data-value="mobifone">mobifone</li>
-                                <li class="locnhamang" data-value="vietnamobile">vietnamobile</li>
-                                <li class="locnhamang" data-value="gmobile">gmobile</li>
-                                <li class="locnhamang" data-value="itelecom">itelecom</li>
+                                <li class="locnhamang" data-value="viettel">Viettel</li>
+                                <li class="locnhamang" data-value="vinaphone">Vinaphone</li>
+                                <li class="locnhamang" data-value="mobifone">Mobifone</li>
+                                <li class="locnhamang" data-value="vietnamobile">Vietnamobile</li>
+                                <li class="locnhamang" data-value="gmobile">Gmobile</li>
+                                <li class="locnhamang" data-value="itelecom">Itelecom</li>
                             </ul>
                         </li>
                     <?php endif;?>
@@ -48,7 +48,7 @@
                         <?php if (isset($_GET['loaisim']) && $_GET['loaisim'] == 'dau-so-co'): echo 'Đầu số cổ'; endif;?>
                         <?php if (isset($_GET['loaisim']) && $_GET['loaisim'] == 'tam-hoa-don'): echo 'Tam hoa đơn'; endif;?>
                         <?php if (isset($_GET['loaisim']) && $_GET['loaisim'] == 'tam-hoa-kep'): echo 'Tam hoa kép'; endif;?>
-                            <ul>
+                            <ul id="locloaisim">
                                 <li class="locloaisim" data-value="">Tất cả loại sim</li>
                                 <li class="locloaisim" data-value="sim-tu-quy">Sim Tứ Quý</li>
                                 <li class="locloaisim" data-value="sim-luc-quy">Sim Lục Quý</li>
