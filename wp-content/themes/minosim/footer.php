@@ -26,7 +26,7 @@
                         Copyright <?=date('Y')?> &copy; <?php bloginfo( 'name' );?>
                     </div>
                     <div class="col-md-6 text-right">
-                        Thiết kế website bởi Mino
+                        Thiết kế website bởi Mino.
                     </div>
                 </div>
             </div>
