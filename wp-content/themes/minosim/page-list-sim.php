@@ -40,12 +40,13 @@ get_header();
         <div class="row">
             <div id="primary" class="content-area col-md-8 order-md-2">
                 <main id="main" class="site-main p-2 bg-white" role="main" >
-					
+                    <?php $getLoaiSim = isset($_GET['loaisim']) ? $_GET['loaisim'] : get_post_meta(get_the_ID(), 'loaisim', true ); ?>
+                    
                     <?php get_search_sim_form(); ?>
-                    <?php get_type_sim(); ?>
+                    <?php get_type_sim($getLoaiSim); ?>
 
-                    <!-- <img src="<?php echo get_template_directory_uri(); ?>/images/sim-v90.jpg" class="img-fluid mb-3"  width="100%"/> -->
                     <?php masterslider(1); ?>
+                    
                     <?php if (!is_front_page()):
                         $page = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
                     ?>
@@ -80,7 +81,7 @@ get_header();
                         $query .= " AND simso LIKE '$keyword'";
                     }
 
-                    $getLoaiSim = isset($_GET['loaisim']) ? $_GET['loaisim'] : get_post_meta(get_the_ID(), 'loaisim', true );
+                    
                     global $loaiSim;
                     if ($getLoaiSim && isset($loaiSim[$getLoaiSim])) {
                         if (is_array($loaiSim[$getLoaiSim])) {
@@ -117,7 +118,7 @@ get_header();
                         $len = strlen($duoiso);
                         $query .= " AND (RIGHT(`simso`, $len) = $duoiso)";
                     }
-
+                    
                     $giaTu = isset($_GET['giatu']) ? $_GET['giatu'] : get_post_meta(get_the_ID(), 'giatu', true );
                     $giaDen = isset($_GET['giaden']) ? $_GET['giaden'] : get_post_meta(get_the_ID(), 'giaden', true );
 

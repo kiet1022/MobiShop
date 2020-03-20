@@ -330,7 +330,7 @@ add_filter('manage_edit-agency_columns', function ( $columns )
 
 // end
 
-function get_type_sim()
+function get_type_sim($typesim = '')
 {
     ob_start();
     require('typesim.php');
