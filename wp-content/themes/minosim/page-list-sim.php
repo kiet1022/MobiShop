@@ -40,10 +40,14 @@ get_header();
         <div class="row">
             <div id="primary" class="content-area col-md-8 order-md-2">
                 <main id="main" class="site-main p-2 bg-white" role="main" >
-                    <?php $getLoaiSim = isset($_GET['loaisim']) ? $_GET['loaisim'] : get_post_meta(get_the_ID(), 'loaisim', true ); ?>
+                    <?php 
+                        $getLoaiSim = isset($_GET['loaisim']) ? $_GET['loaisim'] : get_post_meta(get_the_ID(), 'loaisim', true );
+                        $getNhaMang = isset($_GET['nhamang']) ? $_GET['nhamang'] : get_post_meta(get_the_ID(), 'nhamang', true );
+                        $dauso = isset($_GET['dauso']) ? $_GET['dauso'] : get_post_meta(get_the_ID(), 'dauso', true );
+                    ?>
                     
                     <?php get_search_sim_form(); ?>
-                    <?php get_type_sim($getLoaiSim); ?>
+                    <?php get_type_sim($getLoaiSim, $getNhaMang, $dauso); ?>
 
                     <?php masterslider(1); ?>
                     
@@ -51,7 +55,15 @@ get_header();
                         $page = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
                     ?>
                         <header class="entry-header">
-                            <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+                            <h1 class="entry-title">
+                            <?php
+                                if ($dauso) {
+                                    the_title(); echo " đầu số $dauso"; 
+                                } else {
+                                    the_title();
+                                }
+                            ?>
+                            </h1>
                         </header><!-- .entry-header -->
                     <?php else:
                         $page = get_query_var( 'page' ) ? get_query_var( 'page' ) : 1;
@@ -101,13 +113,13 @@ get_header();
                         $query .= " AND goicuoc = '$getGoiCuoc'";
                     }
 
-                    $getNhaMang = isset($_GET['nhamang']) ? $_GET['nhamang'] : get_post_meta(get_the_ID(), 'nhamang', true );
+                    
                     global $nhaMang;
                     if (isset($getNhaMang) && isset($nhaMang[$getNhaMang])) {
                         $query .= " AND (" . $nhaMang[$getNhaMang] . ")";
                     }
 
-                    $dauso = get_post_meta(get_the_ID(), 'dauso', true );
+                    
                     if ($dauso) {
                         $len = strlen($dauso);
                         $query .= " AND (LEFT(`simso`, $len) = $dauso)";
@@ -149,6 +161,7 @@ get_header();
                     }
                     
                     $wp_query = new WP_Query( $args );
+                    // var_dump($query);
                     if ( $wp_query->have_posts() ) :
                     ?>
                         <table class="table table-striped table-bordered table-hover text-center" style="margin-bottom: 7px;">

@@ -1,10 +1,10 @@
 jQuery(document).ready(function($) {
     $("#form-loc-sim").submit(function() {
-        $(this).find(":input").filter(function(){ return !this.value; }).attr("disabled", "disabled");
+        $(this).find(":input").filter(function() { return !this.value; }).attr("disabled", "disabled");
         return true;
     });
 
-    $( "#form-loc-sim" ).find( ":input" ).prop( "disabled", false );
+    $("#form-loc-sim").find(":input").prop("disabled", false);
 
     $('#form-tim-sim').on('submit', function(e) {
         e.preventDefault();
@@ -37,12 +37,12 @@ jQuery(document).ready(function($) {
         $('#form-loc-sim').submit();
     });
 
-    $('li.read-more').on('click', function (e) {
+    $('li.read-more').on('click', function(e) {
         e.preventDefault();
         $(this).parent().find('li').show();
     });
 
-    $('#loc-them').on('click', function (e) {
+    $('#loc-them').on('click', function(e) {
         e.preventDefault();
         $('.loc-them').toggle();
     });
@@ -50,6 +50,7 @@ jQuery(document).ready(function($) {
     // window.onscroll = headerSticky;
     var header = document.getElementById("headerMenu");
     var sticky = header.offsetTop;
+
     function headerSticky() {
         if (window.pageYOffset > sticky) {
             header.classList.add("sticky");
@@ -61,22 +62,22 @@ jQuery(document).ready(function($) {
     $("#selectAll").click(function() {
         $("input.checkboxsim").prop("checked", $(this).prop("checked"));
     });
-    
+
     $(".checkboxsim").click(function() {
         if (!$(this).prop("checked")) {
             $("#selectAll").prop("checked", false);
-            
+
         } else {
-            
+
         }
     });
     new ClipboardJS('.copy-sim');
 
     $("#locthem").click(function() {
         if ($('.locthem').css('display') == 'none') {
-            $('.locthem').css('display','table-row');
+            $('.locthem').css('display', 'table-row');
         } else {
-            $('.locthem').css('display','none');
+            $('.locthem').css('display', 'none');
         }
     });
 
@@ -96,7 +97,7 @@ jQuery(document).ready(function($) {
             $('input[name="giaden"]').val("");
         }
         $('#form-loc-sim').submit();
-        
+
     });
 
     $('.locloaisim').click(function() {
@@ -117,5 +118,14 @@ jQuery(document).ready(function($) {
     $('.sapxep').click(function() {
         $('input[name="sapxep"]').val($(this).data('value'));
         $('#form-loc-sim').submit();
+    });
+
+    // Show hide tr info sim
+    $('.display-collapse').click(function() {
+        if ($('.tr-info-collapse').css('display') == 'none') {
+            $('.tr-info-collapse').css('display', 'table-row');
+        } else {
+            $('.tr-info-collapse').css('display', 'none');
+        }
     });
 });

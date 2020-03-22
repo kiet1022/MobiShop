@@ -10,7 +10,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: minosim
 */
 
-:root {
+ :root {
     --primary-color: #008fe5;
 }
 
@@ -715,4 +715,21 @@ table tbody tr td {
 }
 .locthem {
     display: none;
+}
+.sim-info table th {
+    padding: 0.75rem 0.75rem 0.75rem 5px;
+    width: 40%;
+    font-weight: normal;
+}
+.sim-info table td.hidden-info {
+    padding: 0 !important;
+}
+.sim-info table td.hidden-info div.card-body {
+    border: none;
+}
+.sim-info table tr.tr-info-collapse {
+    display: none;
+}
+.content-area {
+    padding-right: 7px;
 }

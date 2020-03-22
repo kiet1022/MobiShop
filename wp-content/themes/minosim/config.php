@@ -53,6 +53,12 @@ define("L7","LEFT(simso,7)");
 define("L8","LEFT(simso,8)");
 define("L9","LEFT(simso,9)");
 
+define("VIETTEL","viettel");
+define("MOBI","mobifone");
+define("VINA","vinaphone");
+define("VIETNAM","vietnamobile");
+define("GMOBILE","gmobile");
+define("ITELECOM","itelecom");
 
 $sub="MID(simso";
 
@@ -127,63 +133,64 @@ $loaiSim['dau-so-co']="(left(simso,3) IN(091,090,098,097))";
 $menuLoaiSim = array();
 
 // 1. Đặc biệt
-$menuLoaiSim['sim-dac-biet']= array(106);
+$menuLoaiSim['sim-dac-biet']= array(115);
 
 // 2. Lục Quý
-$menuLoaiSim['sim-luc-quy']= array(106, 29, 30);
+$menuLoaiSim['sim-luc-quy']= array(106);
 
 // 3. Ngũ Quý
-$menuLoaiSim['sim-ngu-quy']= array(106);
+$menuLoaiSim['sim-ngu-quy']= array(114);
 
 // 4. Tứ Quý
-$menuLoaiSim['sim-tu-quy']= array(106);
+$menuLoaiSim['sim-tu-quy']= array(109);
 
 // 5. Tam Hoa Đơn
-$menuLoaiSim['tam-hoa-don']= array(106);
+$menuLoaiSim['tam-hoa-don']= array(111);
 
 // 6. Tam Hoa kép
-$menuLoaiSim['tam-hoa-kep']= array(106);
+$menuLoaiSim['tam-hoa-kep']= array(29);
 
 // 7. Taxi lặp 2
-$menuLoaiSim['sim-taxi-hai']= array(106);
+$menuLoaiSim['sim-taxi-hai']= array(29);
 
 // 8. Taxi lap 3 No Sup
-$menuLoaiSim['sim-taxi-ba']= array(106);
+$menuLoaiSim['sim-taxi-ba']= array(29);
 
 // 9. Taxi lap 4 No Sup
-$menuLoaiSim['sim-taxi-bon']= array(106);
+$menuLoaiSim['sim-taxi-bon']= array(29);
 
 // 10. Số kép
-$menuLoaiSim['sim-kep']= array(106);
+$menuLoaiSim['sim-kep']= array(29);
 
 // 11. Số lặp
-$menuLoaiSim['sim-lap']= array(106);
+$menuLoaiSim['sim-lap']= array(29);
 
 // 12.Sim dao
-$menuLoaiSim['sim-dao']= array(106);
+$menuLoaiSim['sim-dao']= array(29);
 
  //13. Sim doi
-$menuLoaiSim['sim-doi']= array(106);
+$menuLoaiSim['sim-doi']= array(29);
 
  // 14 .sim tien don
-$menuLoaiSim['sim-tien-don']= array(106);
+$menuLoaiSim['sim-tien-don']= array(112);
 
 // 15 .Tien doi
-$menuLoaiSim['sim-tien-doi']= array(106);
+$menuLoaiSim['sim-tien-doi']= array(29);
 
 // 16. Sim lộc phát
-$menuLoaiSim['sim-loc-phat']= array(106);
+$menuLoaiSim['sim-loc-phat']= array(108);
 
 // 17. Sim Thần tài
-$menuLoaiSim['sim-than-tai']= array(106);
+$menuLoaiSim['sim-than-tai']= array(107);
+
 // 18 Sim ông địa
-$menuLoaiSim['sim-ong-dia']= array(106);
+$menuLoaiSim['sim-ong-dia']= array(110);
 
 // 19. Số gánh
-$menuLoaiSim['sim-ganh']= array(106);
+$menuLoaiSim['sim-ganh']= array(29);
 
 // 20. Sim năm sinh
-$menuLoaiSim['sim-nam-sinh']= array(106);
+$menuLoaiSim['sim-nam-sinh']= array(113);
 
 // 21. Sim đầu số cổ
 $menuLoaiSim['dau-so-co']= array(106);
