@@ -32,11 +32,11 @@
 					<?php
 						global $nhaMang;
 					?>
-					<a class="display-collapse" data-toggle="collapse" href="#collapse-nha-mang" role="button" aria-expanded="false" aria-controls="collapse-nha-mang" title="<?php echo ucfirst($nhaMang); ?>" href="<?php echo home_url('/') . strtolower($nhaMang)?>"><?php echo ucfirst($nhaMang) ?> <span style="color: #c4161c;font-size: 15px">(Xem chi tiết)</span></a>
+					<a class="display-collapse-nha-mang" data-toggle="collapse" href="#collapse-nha-mang" role="button" aria-expanded="false" aria-controls="collapse-nha-mang" title="<?php echo ucfirst($nhaMang); ?>" href="<?php echo home_url('/') . strtolower($nhaMang)?>"><?php echo ucfirst($nhaMang) ?> <span style="color: #c4161c;font-size: 15px">(Xem chi tiết)</span></a>
 					</td>
 				</tr>
 				<!-- begin Thông tin loại nhà mạng  -->
-				<tr class="tr-info-collapse">
+				<tr class="tr-info-collapse info-collapse-nha-mang">
 					<td colspan="2" class="hidden-info">
 					<div class="collapse" id="collapse-nha-mang" style="font-weight: initial;">
 						<div class="card card-body">
@@ -55,7 +55,7 @@
 					<?php
 						$loaithuebao = get_post_field('loaithuebao', get_the_ID());
 					?>
-					<a class="display-collapse" data-toggle="collapse" href="#collapse-thue-bao" role="button" aria-expanded="false" aria-controls="collapse-thue-bao" 
+					<a class="display-collapse-thue-bao" data-toggle="collapse" href="#collapse-thue-bao" role="button" aria-expanded="false" aria-controls="collapse-thue-bao" 
 					href="<?php echo home_url('/') . strtolower($loaithuebao)?>">
 					<?php if ($loaithuebao == 'tt') echo 'Trả trước';
 						elseif ($loaithuebao == 'ts') echo 'Trả sau';
@@ -63,7 +63,7 @@
 					</td>
 				</tr>
 				<!-- begin Thông tin loại thuê bao  -->
-				<tr class="tr-info-collapse">
+				<tr class="tr-info-collapse info-collapse-thue-bao">
 					<td colspan="2" class="hidden-info">
 					<div class="collapse" id="collapse-thue-bao" style="font-weight: initial;">
 						<div class="card card-body">

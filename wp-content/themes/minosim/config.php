@@ -128,6 +128,8 @@ $loaiSim['sim-nam-sinh']=array($sub.",-4,4) > ".(date('Y')-50),$sub.",-4,4) < ".
 // 21. Sim đầu số cổ
 $loaiSim['dau-so-co']="(left(simso,3) IN(091,090,098,097))";
 
+// 22. Sim khuyến mãi
+$loaiSim['sim-khuyen-mai']="(goicuoc IS NOT NULL)";
 
 // Menu con các loại sim
 $menuLoaiSim = array();
@@ -195,6 +197,8 @@ $menuLoaiSim['sim-nam-sinh']= array(113);
 // 21. Sim đầu số cổ
 $menuLoaiSim['dau-so-co']= array(106);
 
+// 21. Sim đầu số cổ
+$menuLoaiSim['sim-khuyen-mai']= array(122);
 
 // Nhà mạng
 $nhaMang = array();
@@ -264,7 +268,7 @@ function getTenNhaMang($so = '', $lowercase = false) {
     return $lowercase ? strtolower($tenMang) : $tenMang;
 }
 
-function getLoaiSim($so = '') {
+function getLoaiSim($so = '', $goicuoc = '') {
     $sosim = str_replace(' ', '', str_replace('.', '', $so));
 
     $r1 = substr($sosim, -1, 1);

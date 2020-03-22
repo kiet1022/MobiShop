@@ -338,6 +338,14 @@ function get_type_sim($typesim = '', $nhamang = '', $dauso= '')
     echo $form;
 }
 
+function get_menu_nam_sinh($namsinh = '')
+{
+    ob_start();
+    require('menunamsinh.php');
+    $form = ob_get_clean();
+    echo $form;
+}
+
 function get_search_sim_form()
 {
     ob_start();
@@ -346,7 +354,7 @@ function get_search_sim_form()
     echo $form;
 }
 
-function get_filter_sim_form()
+function get_filter_sim_form($getGoiCuoc = '')
 {
     ob_start();
     require('filtersimform.php');
@@ -586,6 +594,10 @@ function thong_tin_trang_html( $post) {
         <input type="text" name="duoiso" id="duoiso" value="<?php echo thong_tin_trang_get_meta( 'duoiso' ); ?>">
     </p>
     <p>
+        <label for="goicuoc"><?php _e( 'Gói cước', 'thong_tin_trang' ); ?></label><br>
+        <input type="text" name="goicuoc" id="goicuoc" value="<?php echo thong_tin_trang_get_meta( 'goicuoc' ); ?>">
+    </p>
+    <p>
         <label for="loaisim"><?php _e( 'Loại sim', 'thong_tin_trang' ); ?></label><br>
         <select name="loaisim" id="loaisim">
             <option></option>
@@ -610,6 +622,7 @@ function thong_tin_trang_html( $post) {
             <option value="dau-so-co" <?php echo (thong_tin_trang_get_meta( 'loaisim' ) === 'dau-so-co' ) ? 'selected' : '' ?>>Sim đầu số cổ</option>
             <option value="tam-hoa-don" <?php echo (thong_tin_trang_get_meta( 'loaisim' ) === 'tam-hoa-don' ) ? 'selected' : '' ?>>Sim tam Hoa Đơn</option>
             <option value="tam-hoa-kep" <?php echo (thong_tin_trang_get_meta( 'loaisim' ) === 'tam-hoa-kep' ) ? 'selected' : '' ?>>Sim tam Hoa Kép</option>
+            <option value="sim-khuyen-mai" <?php echo (thong_tin_trang_get_meta( 'loaisim' ) === 'sim-khuyen-mai' ) ? 'selected' : '' ?>>Sim Khuyến mãi</option>
         </select>
     </p>
     <?php
@@ -632,6 +645,8 @@ function thong_tin_trang_save( $post_id ) {
         update_post_meta( $post_id, 'loaisim', esc_attr( $_POST['loaisim'] ) );
     if ( isset( $_POST['nhamang'] ) )
         update_post_meta( $post_id, 'nhamang', esc_attr( $_POST['nhamang'] ) );
+    if ( isset( $_POST['goicuoc'] ) )
+        update_post_meta( $post_id, 'goicuoc', esc_attr( $_POST['goicuoc'] ) );
 }
 add_action( 'save_post', 'thong_tin_trang_save' );
 

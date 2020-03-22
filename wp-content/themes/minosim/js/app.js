@@ -121,11 +121,40 @@ jQuery(document).ready(function($) {
     });
 
     // Show hide tr info sim
-    $('.display-collapse').click(function() {
-        if ($('.tr-info-collapse').css('display') == 'none') {
-            $('.tr-info-collapse').css('display', 'table-row');
+    $('.display-collapse-nha-mang').click(function() {
+
+        if ($('.info-collapse-nha-mang').css('display') == 'none') {
+            $('.info-collapse-nha-mang').css('display', 'table-row');
         } else {
-            $('.tr-info-collapse').css('display', 'none');
+            $('.info-collapse-nha-mang').css('display', 'none');
+        }
+    });
+
+    $('.display-collapse-thue-bao').click(function() {
+
+        if ($('.info-collapse-thue-bao').css('display') == 'none') {
+            $('.info-collapse-thue-bao').css('display', 'table-row');
+        } else {
+            $('.info-collapse-thue-bao').css('display', 'none');
         }
     });
 });
+
+function openCity(evt, cityName) {
+
+    // Declare all variables
+    var i, tabcontent, tablinks;
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent-month");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    // Show the current tab, and add an "active" class to the link that opened the tab
+    document.getElementById(cityName).style.display = "flex";
+    evt.currentTarget.className += " active";
+}

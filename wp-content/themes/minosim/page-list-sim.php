@@ -44,11 +44,14 @@ get_header();
                         $getLoaiSim = isset($_GET['loaisim']) ? $_GET['loaisim'] : get_post_meta(get_the_ID(), 'loaisim', true );
                         $getNhaMang = isset($_GET['nhamang']) ? $_GET['nhamang'] : get_post_meta(get_the_ID(), 'nhamang', true );
                         $dauso = isset($_GET['dauso']) ? $_GET['dauso'] : get_post_meta(get_the_ID(), 'dauso', true );
+                        $getGoiCuoc = isset($_GET['goicuoc']) ? $_GET['goicuoc'] : get_post_meta(get_the_ID(), 'goicuoc', true );
+                        $duoiso = isset($_GET['duoiso']) ? $_GET['duoiso'] : get_post_meta(get_the_ID(), 'duoiso', true );
+                        echo $getGoiCuoc;
                     ?>
                     
                     <?php get_search_sim_form(); ?>
                     <?php get_type_sim($getLoaiSim, $getNhaMang, $dauso); ?>
-
+                    <?php if(strlen($duoiso) >= 4 ) get_menu_nam_sinh($duoiso); ?>
                     <?php masterslider(1); ?>
                     
                     <?php if (!is_front_page()):
@@ -70,7 +73,7 @@ get_header();
                     ?>
                     <?php endif; ?>
 
-                    <?php get_filter_sim_form(); ?>
+                    <?php get_filter_sim_form($getGoiCuoc); ?>
                     <?php
                     $args = array(
                         'post_type' => 'sim',
@@ -108,7 +111,7 @@ get_header();
                         $query .= " AND loaithuebao = '$getLoaiThueBao'";
                     }
 
-                    $getGoiCuoc = isset($_GET['goicuoc']) ? $_GET['goicuoc'] : get_post_meta(get_the_ID(), 'goicuoc', true );
+                    
                     if ($getGoiCuoc) {
                         $query .= " AND goicuoc = '$getGoiCuoc'";
                     }
@@ -125,7 +128,7 @@ get_header();
                         $query .= " AND (LEFT(`simso`, $len) = $dauso)";
                     }
 
-                    $duoiso = get_post_meta(get_the_ID(), 'duoiso', true );
+                    
                     if ($duoiso) {
                         $len = strlen($duoiso);
                         $query .= " AND (RIGHT(`simso`, $len) = $duoiso)";
@@ -161,7 +164,6 @@ get_header();
                     }
                     
                     $wp_query = new WP_Query( $args );
-                    // var_dump($query);
                     if ( $wp_query->have_posts() ) :
                     ?>
                         <table class="table table-striped table-bordered table-hover text-center" style="margin-bottom: 7px;">
@@ -179,7 +181,6 @@ get_header();
                     <?php
                         /* Start the Loop */
                         while ( $wp_query->have_posts() ) : $wp_query->the_post();
-
                             get_template_part( 'template-parts/content', 'sim' );
 
                         endwhile;

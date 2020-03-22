@@ -27,10 +27,10 @@
 			<div class="container">
 				<div class="row mx-0">
 				<ul class="bg-dark top-header">
-							<li>Trang chủ</li>
-							<li>Thanh toán</li>
-							<li>Đăng nhập</li>
-						</ul>
+					<li>Trang chủ</li>
+					<li>Thanh toán</li>
+					<li>Đăng nhập</li>
+				</ul>
 				</div>
 				<div class="header-top d-none d-md-block p-3">
 					<div class="row">

@@ -733,3 +733,37 @@ table tbody tr td {
 .content-area {
     padding-right: 7px;
 }
+.filter-month {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.filter-month li {
+    padding: 1px 4px;
+    border-right: 1px solid #21537d;
+    float: left;
+}
+.filter-month li:hover {
+    background: #21537d;
+}
+.filter-month li a {
+    color: white;
+    display: inline-block;
+    text-align: center;
+    /* padding: 3px 5px; */
+    
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 13px;
+}
+.filter-month li.active {
+    background: #21537d;
+}
+.tabcontent-month {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 10px 10px 0px 5px;
+    margin-bottom: 0px;
+}

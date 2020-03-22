@@ -112,7 +112,7 @@
                         </li>
                     </ul>
                 </td>
-            <tr class="locthem" <?php echo (!isset($_GET['loaithuebao']) && !isset($_GET['sapxep']) && !isset($_GET['goicuoc'])) ? 'style="display: none"' : 'style="display: table-row"'?>>
+            <tr class="locthem" <?php echo (!isset($_GET['loaithuebao']) && !isset($_GET['sapxep']) && !isset($_GET['goicuoc']) &&  $getGoiCuoc == '') ? 'style="display: none"' : 'style="display: table-row"'?>>
                 <td class="locnhanh" colspan="5">
                     <ul>
                         <li>
@@ -126,7 +126,7 @@
                             </ul>
                         </li>
                         <li>
-                        <?php if(isset($_GET['goicuoc'])): echo $_GET['goicuoc']; else: echo 'Khuyến mãi'; endif;?>
+                        <?php if(isset($_GET['goicuoc'])): echo $_GET['goicuoc']; elseif (isset($getGoiCuoc) && $getGoiCuoc != ''): echo $getGoiCuoc; else: echo 'Khuyến mãi'; endif;?>
                             <ul id="loc-1">
                             <li class="lockhuyenmai" data-value="">Tất cả gói cước</li>
                             <?php
