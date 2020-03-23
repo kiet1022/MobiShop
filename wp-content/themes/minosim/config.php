@@ -131,6 +131,9 @@ $loaiSim['dau-so-co']="(left(simso,3) IN(091,090,098,097))";
 // 22. Sim khuyến mãi
 $loaiSim['sim-khuyen-mai']="(goicuoc IS NOT NULL)";
 
+// 23. Sim taxi
+$loaiSim['sim-taxi'] = $loaiSim['sim-taxi-hai']." OR ".$loaiSim['sim-taxi-ba']." OR ".$loaiSim['sim-taxi-bon'][0];
+
 // Menu con các loại sim
 $menuLoaiSim = array();
 
@@ -152,14 +155,17 @@ $menuLoaiSim['tam-hoa-don']= array(111);
 // 6. Tam Hoa kép
 $menuLoaiSim['tam-hoa-kep']= array(29);
 
-// 7. Taxi lặp 2
-$menuLoaiSim['sim-taxi-hai']= array(29);
+// 7. Taxi
+$menuLoaiSim['sim-taxi']= array(123);
 
 // 8. Taxi lap 3 No Sup
-$menuLoaiSim['sim-taxi-ba']= array(29);
+$menuLoaiSim['sim-taxi-hai']= array(123);
+
+// 8. Taxi lap 3 No Sup
+$menuLoaiSim['sim-taxi-ba']= array(123);
 
 // 9. Taxi lap 4 No Sup
-$menuLoaiSim['sim-taxi-bon']= array(29);
+$menuLoaiSim['sim-taxi-bon']= array(123);
 
 // 10. Số kép
 $menuLoaiSim['sim-kep']= array(29);

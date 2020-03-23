@@ -120,23 +120,10 @@ jQuery(document).ready(function($) {
         $('#form-loc-sim').submit();
     });
 
-    // Show hide tr info sim
-    $('.display-collapse-nha-mang').click(function() {
-
-        if ($('.info-collapse-nha-mang').css('display') == 'none') {
-            $('.info-collapse-nha-mang').css('display', 'table-row');
-        } else {
-            $('.info-collapse-nha-mang').css('display', 'none');
-        }
-    });
-
-    $('.display-collapse-thue-bao').click(function() {
-
-        if ($('.info-collapse-thue-bao').css('display') == 'none') {
-            $('.info-collapse-thue-bao').css('display', 'table-row');
-        } else {
-            $('.info-collapse-thue-bao').css('display', 'none');
-        }
+    $('.locduoiso').click(function(e) {
+        e.preventDefault();
+        $('input[name="duoiso"]').val($(this).data('value'));
+        $('#form-loc-sim').submit();
     });
 });
 

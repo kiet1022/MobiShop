@@ -49,6 +49,10 @@ a {
     margin: 0;
 }
 
+.bg-dark li a {
+    color: #fff;
+}
+
 @media (min-width: 768px) {
     #sidebar-left,
     #sidebar-right {
@@ -503,8 +507,17 @@ table tbody tr td {
 .sim-list {
     width: 25%;
 }
-@media only screen and (max-width :991px) {
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     #primary {
+        padding: 10px 10px 0 10px;
+    }
+    
+    #sidebar-right {
         padding: 10px 10px 0 10px;
     }
     
@@ -535,8 +548,17 @@ table tbody tr td {
         overflow-y: auto;
     }
 }
-@media only screen and (max-width :812px) {
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+@media (min-width: 481px) and (max-width: 767px) {
     #primary {
+        padding: 10px 10px 0 10px;
+    }
+    
+    #sidebar-right {
         padding: 10px 10px 0 10px;
     }
     
@@ -567,8 +589,17 @@ table tbody tr td {
         overflow-y: auto;
     }
 }
-@media only screen and (max-width :414px) {
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+@media (min-width: 320px) and (max-width: 480px) {
     #primary {
+        padding: 10px 10px 0 10px;
+    }
+    
+    #sidebar-right {
         padding: 10px 10px 0 10px;
     }
     
@@ -745,7 +776,7 @@ table tbody tr td {
     float: left;
 }
 .filter-month li:hover {
-    background: #21537d;
+    background: #ffcd00;
 }
 .filter-month li a {
     color: white;
@@ -758,7 +789,7 @@ table tbody tr td {
     font-size: 13px;
 }
 .filter-month li.active {
-    background: #21537d;
+    background: #ffcd00;
 }
 .tabcontent-month {
     display: flex;

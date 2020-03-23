@@ -46,7 +46,6 @@ get_header();
                         $dauso = isset($_GET['dauso']) ? $_GET['dauso'] : get_post_meta(get_the_ID(), 'dauso', true );
                         $getGoiCuoc = isset($_GET['goicuoc']) ? $_GET['goicuoc'] : get_post_meta(get_the_ID(), 'goicuoc', true );
                         $duoiso = isset($_GET['duoiso']) ? $_GET['duoiso'] : get_post_meta(get_the_ID(), 'duoiso', true );
-                        echo $getGoiCuoc;
                     ?>
                     
                     <?php get_search_sim_form(); ?>
@@ -164,6 +163,7 @@ get_header();
                     }
                     
                     $wp_query = new WP_Query( $args );
+                    var_dump($query);
                     if ( $wp_query->have_posts() ) :
                     ?>
                         <table class="table table-striped table-bordered table-hover text-center" style="margin-bottom: 7px;">

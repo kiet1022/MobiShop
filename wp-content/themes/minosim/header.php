@@ -27,9 +27,9 @@
 			<div class="container">
 				<div class="row mx-0">
 				<ul class="bg-dark top-header">
-					<li>Trang chủ</li>
+					<li><a href="<?php echo home_url('/') ?>">Trang chủ</a></li>
 					<li>Thanh toán</li>
-					<li>Đăng nhập</li>
+					<li><a href="<?php echo admin_url(); ?>">Đăng nhập</a></li>
 				</ul>
 				</div>
 				<div class="header-top d-none d-md-block p-3">
@@ -89,7 +89,7 @@
 							$logo_url = wp_get_attachment_image_url( $logo_id , 'full' );
 							if ($logo_url):
 							?>
-							<img style="max-height: 45px;" src="http://mobishop.kietkun.xyz/wp-content/uploads/2020/02/cropped-mobi_shop22-1-1.png" alt="<?php bloginfo( 'name' ); ?>">
+							<img style="max-height: 45px;" src="<?php echo wp_upload_dir()['baseurl'].'/2020/02/cropped-mobi_shop22-1-1.png'; ?>" alt="<?php bloginfo( 'name' ); ?>">
 							<?php
 							else:
 							?>
@@ -100,25 +100,25 @@
 						</a>
 						<nav class="navbar bg-dark navbar-expand-lg navbar-dark header-padding-mobi" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 							<div class="mx-auto d-mobile">DANH MỤC
-							<div class="navbar-text navbar-toggler navbar-toggler-right mr-2">
-								<img src="http://mobishop.kietkun.xyz/wp-content/themes/minosim/images/menu-small.png" alt="" srcset="">
+								<div class="navbar-text navbar-toggler navbar-toggler-right mr-2">
+									<img src="<?php echo get_template_directory_uri().'\images\menu-small.png'; ?>" alt="" srcset="">
+								</div>
 							</div>
+							<div class="collapse navbar-collapse text-center" id="navbarNav">
+								<?php
+									$args = array(
+										'theme_location' => 'primary',
+										'depth'      => 2,
+										'container'  => false,
+										'menu_class'     => 'navbar-nav',
+										'walker'     => new Bootstrap_Walker_Nav_Menu()
+									);
+									if (has_nav_menu('primary')) {
+										wp_nav_menu($args);
+									}
+								?>
 							</div>
-					<div class="collapse navbar-collapse text-center" id="navbarNav">
-						<?php
-						$args = array(
-							'theme_location' => 'primary',
-							'depth'      => 2,
-							'container'  => false,
-							'menu_class'     => 'navbar-nav',
-							'walker'     => new Bootstrap_Walker_Nav_Menu()
-						);
-						if (has_nav_menu('primary')) {
-							wp_nav_menu($args);
-						}
-						?>
-					</div>
-				</nav>
+						</nav>
 					</div>
 			</div>
 		</header><!-- #masthead -->

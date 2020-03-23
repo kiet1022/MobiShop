@@ -7,6 +7,7 @@
     <input type="hidden" name="loaithuebao" <?php if (isset($_GET['loaithuebao'])): echo 'value="'.$_GET['loaithuebao'].'"'; endif;?>>
     <input type="hidden" name="goicuoc" <?php if (isset($_GET['goicuoi'])): echo 'value="'.$_GET['goicuoi'].'"'; endif;?>>
     <input type="hidden" name="sapxep" <?php if (isset($_GET['sapxep'])): echo 'value="'.$_GET['sapxep'].'"'; endif;?>>
+    <input type="hidden" name="duoiso" <?php if (isset($_GET['duoiso'])): echo 'value="'.$_GET['duoiso'].'"'; endif;?>>
         <tbody>
             <tr>
                 <td class="locnhanh" colspan="5">

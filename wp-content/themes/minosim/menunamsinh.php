@@ -32,13 +32,13 @@
                 // End date
                 $lastDateOfMonth = date("Y-m-t", strtotime("$namsinh-$i-01"));
                 $end_date = $lastDateOfMonth;
-
+                global $wp;
                 while (strtotime($date) <= strtotime($end_date)) { 
                     $dateDisplay = date_format(date_create($date), "d/m/Y");
                     $dateArr = (explode("/",$dateDisplay));
                     $dateUrl = join([$dateArr[0], $dateArr[1], substr($dateArr[2], -2)]);
                 ?>
-                <li class="sim-list"><a href="<?php echo "?duoiso=$dateUrl";?>">
+                <li class="sim-list"><a class="locduoiso" href="#" data-value="<?php echo $dateUrl; ?>">
                 <?php echo "Ngày $dateDisplay";?>
                 </a>
                 </li>

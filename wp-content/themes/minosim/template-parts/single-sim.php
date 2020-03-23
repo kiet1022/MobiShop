@@ -32,50 +32,24 @@
 					<?php
 						global $nhaMang;
 					?>
-					<a class="display-collapse-nha-mang" data-toggle="collapse" href="#collapse-nha-mang" role="button" aria-expanded="false" aria-controls="collapse-nha-mang" title="<?php echo ucfirst($nhaMang); ?>" href="<?php echo home_url('/') . strtolower($nhaMang)?>"><?php echo ucfirst($nhaMang) ?> <span style="color: #c4161c;font-size: 15px">(Xem chi tiết)</span></a>
+					<a data-toggle="collapse" href="#collapse-nha-mang" role="button" aria-expanded="false" aria-controls="collapse-nha-mang" title="<?php echo ucfirst($nhaMang); ?>" href="<?php echo home_url('/') . strtolower($nhaMang)?>"><?php echo ucfirst($nhaMang) ?> <span style="color: #c4161c;font-size: 15px">(Xem chi tiết)</span></a>
 					</td>
 				</tr>
-				<!-- begin Thông tin loại nhà mạng  -->
-				<tr class="tr-info-collapse info-collapse-nha-mang">
-					<td colspan="2" class="hidden-info">
-					<div class="collapse" id="collapse-nha-mang" style="font-weight: initial;">
-						<div class="card card-body">
-							<?php
-								$page = get_page_by_path( strtolower($nhaMang) );
-								echo get_the_content( null, false, $page );
-							?>
-						</div>
-					</div>
-					</td>
-				</tr>
-				<!-- End Thông tin loại nhà mạng  -->
+
 				<tr>
 					<th>Loại thuê bao: </th>
 					<td>
 					<?php
 						$loaithuebao = get_post_field('loaithuebao', get_the_ID());
 					?>
-					<a class="display-collapse-thue-bao" data-toggle="collapse" href="#collapse-thue-bao" role="button" aria-expanded="false" aria-controls="collapse-thue-bao" 
+					<a data-toggle="collapse" href="#collapse-thue-bao" role="button" aria-expanded="false" aria-controls="collapse-thue-bao" 
 					href="<?php echo home_url('/') . strtolower($loaithuebao)?>">
 					<?php if ($loaithuebao == 'tt') echo 'Trả trước';
 						elseif ($loaithuebao == 'ts') echo 'Trả sau';
 						else echo 'Không xác định'; ?> <span style="color: #c4161c;font-size: 15px">(Xem chi tiết)</span></a>
 					</td>
 				</tr>
-				<!-- begin Thông tin loại thuê bao  -->
-				<tr class="tr-info-collapse info-collapse-thue-bao">
-					<td colspan="2" class="hidden-info">
-					<div class="collapse" id="collapse-thue-bao" style="font-weight: initial;">
-						<div class="card card-body">
-							<?php
-								$page = get_page_by_path( strtolower($loaithuebao) );
-								echo get_the_content( null, false, $page );
-							?>
-						</div>
-					</div>
-					</td>
-				</tr>
-				<!-- End begin Thông tin loại thuê bao  -->
+
 				<tr>
 					<th>Ưu đãi khuyến mãi: </th>
 					<td>
@@ -88,14 +62,40 @@
 					</td>
 				</tr>
 				</table>
-				<div class="collapse" id="collapseExample" style="font-weight: initial;">
-							<div class="card card-body">
-								<?php
-									$page = get_page_by_path( strtolower($goicuoc) );
-									echo get_the_content( null, false, $page );
-								?>
-							</div>
+
+				<div class="accordion" id="accordionExample">
+					<!-- begin Thông tin loại nhà mạng  -->				
+					<div class="collapse" id="collapse-nha-mang" style="font-weight: initial;" data-parent="#accordionExample">
+						<div class="card card-body">
+							<?php
+								$page = get_page_by_path( strtolower($nhaMang) );
+								echo get_the_content( null, false, $page );
+							?>
 						</div>
+					</div>
+					<!-- End Thông tin loại nhà mạng  -->
+					<!-- begin Thông tin loại thuê bao  -->
+					
+					<div class="collapse" id="collapse-thue-bao" style="font-weight: initial;" data-parent="#accordionExample">
+						<div class="card card-body">
+							<?php
+								$page = get_page_by_path( strtolower($loaithuebao) );
+								echo get_the_content( null, false, $page );
+							?>
+						</div>
+					</div>
+					<!-- End begin Thông tin loại thuê bao  -->
+					<!-- begin Thông tin gói cước  -->				
+					<div class="collapse" id="collapseExample" style="font-weight: initial;" data-parent="#accordionExample">
+						<div class="card card-body">
+							<?php
+								$page = get_page_by_path( strtolower($goicuoc) );
+								echo get_the_content( null, false, $page );
+							?>
+						</div>
+					</div>
+					<!-- End begin Thông tin gói cước  -->
+				</div>
 			</div>
 		</div>
 

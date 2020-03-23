@@ -609,6 +609,7 @@ function thong_tin_trang_html( $post) {
             <option value="sim-ong-dia" <?php echo (thong_tin_trang_get_meta( 'loaisim' ) === 'sim-ong-dia' ) ? 'selected' : '' ?>>Sim ông địa</option>
             <option value="sim-tien-don" <?php echo (thong_tin_trang_get_meta( 'loaisim' ) === 'sim-tien-don' ) ? 'selected' : '' ?>>Sim tiến đơn</option>
             <option value="sim-tien-doi" <?php echo (thong_tin_trang_get_meta( 'loaisim' ) === 'sim-tien-doi' ) ? 'selected' : '' ?>>Sim Tiến đôi</option>
+            <option value="sim-taxi" <?php echo (thong_tin_trang_get_meta( 'loaisim' ) === 'sim-taxi' ) ? 'selected' : '' ?>>Sim Taxi</option>
             <option value="sim-taxi-hai" <?php echo (thong_tin_trang_get_meta( 'loaisim' ) === 'sim-taxi-hai' ) ? 'selected' : '' ?>>Sim Taxi 2</option>
             <option value="sim-taxi-ba" <?php echo (thong_tin_trang_get_meta( 'loaisim' ) === 'sim-taxi-ba' ) ? 'selected' : '' ?>>Sim Taxi 3</option>
             <option value="sim-taxi-bon" <?php echo (thong_tin_trang_get_meta( 'loaisim' ) === 'sim-taxi-bon' ) ? 'selected' : '' ?>>Sim Taxi 4</option>
@@ -1342,7 +1343,7 @@ function get_custom_theme_color() {
     $color = get_field('theme_color', 19);
     echo "<style>
     :root {
-          --theme-color: $color
+          --theme-color: $color;
     }
     </style>";
 }
