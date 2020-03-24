@@ -46,11 +46,23 @@ get_header();
                         $dauso = isset($_GET['dauso']) ? $_GET['dauso'] : get_post_meta(get_the_ID(), 'dauso', true );
                         $getGoiCuoc = isset($_GET['goicuoc']) ? $_GET['goicuoc'] : get_post_meta(get_the_ID(), 'goicuoc', true );
                         $duoiso = isset($_GET['duoiso']) ? $_GET['duoiso'] : get_post_meta(get_the_ID(), 'duoiso', true );
+                        echo $duoiso;
+                        $namsinh = isset($_GET['namsinh']) ? $_GET['namsinh'] : '';
+                        $ngaysinh = isset($_GET['ngaysinh']) ? $_GET['ngaysinh'] : '';
                     ?>
-                    
+
+                    <!-- Show search sim form  -->
                     <?php get_search_sim_form(); ?>
+                    <!-- Show cac menu con  -->
                     <?php get_type_sim($getLoaiSim, $getNhaMang, $dauso); ?>
-                    <?php if(strlen($duoiso) >= 4 ) get_menu_nam_sinh($duoiso); ?>
+                    <!-- Show menu nam sinh  -->
+                    <?php 
+                        if(strlen($duoiso) >= 4 && $getLoaiSim == SIM_NAM_SINH) {
+                            get_menu_nam_sinh($duoiso);
+                        } else if ($namsinh != '') {
+                            get_menu_nam_sinh($namsinh);
+                        } ?>
+                    <!-- Show slider  -->
                     <?php masterslider(1); ?>
                     
                     <?php if (!is_front_page()):
@@ -129,8 +141,22 @@ get_header();
 
                     
                     if ($duoiso) {
-                        $len = strlen($duoiso);
-                        $query .= " AND (RIGHT(`simso`, $len) = $duoiso)";
+                        $arrduoi = explode(",", $duoiso);
+                        echo count($arrduoi);
+                        if (count($arrduoi) > 1) {
+                            $len = strlen($arrduoi[0]);
+                            $query .= " AND (RIGHT(`simso`, $len) IN (";
+                            for ($index = 0; $index < count($arrduoi); $index++) {
+                                $query .= "'".$arrduoi[$index]."'";
+                                if ($index + 1 < count($arrduoi)) {
+                                    $query .= ",";
+                                }
+                            }
+                            $query .= ")";
+                        } else {
+                            $len = strlen($duoiso);
+                            $query .= " AND (RIGHT(`simso`, $len) = $duoiso)";
+                        }
                     }
                     
                     $giaTu = isset($_GET['giatu']) ? $_GET['giatu'] : get_post_meta(get_the_ID(), 'giatu', true );

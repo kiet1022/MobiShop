@@ -638,6 +638,10 @@ table tbody tr td {
     font-size: 15px;
     /* background: url('../minosim/images/icon-li-ns.png') left no-repeat; */
 }
+.sim-list a.active {
+    font-weight: bold;
+    color: #ffb851;
+}
 .entry-header {
     margin-top: 10px;
 }
@@ -776,7 +780,7 @@ table tbody tr td {
     float: left;
 }
 .filter-month li:hover {
-    background: #ffcd00;
+    background: #ffb851;
 }
 .filter-month li a {
     color: white;
@@ -789,7 +793,7 @@ table tbody tr td {
     font-size: 13px;
 }
 .filter-month li.active {
-    background: #ffcd00;
+    background: #ffb851;
 }
 .tabcontent-month {
     display: flex;

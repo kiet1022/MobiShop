@@ -60,6 +60,30 @@ define("VIETNAM","vietnamobile");
 define("GMOBILE","gmobile");
 define("ITELECOM","itelecom");
 
+define("SIM_DAC_BIET","sim-dac-biet");
+define("SIM_LUC_QUY","sim-luc-quy");
+define("SIM_TU_QUY","sim-tu-quy");
+define("SIM_NGU_QUY","sim-ngu-quy");
+define("SIM_TAM_HOA_DON","tam-hoa-don");
+define("SIM_TAM_HOA_KEP","tam-hoa-kep");
+define("SIM_TAXI","sim-taxi");
+define("SIM_TAXI_HAI","sim-taxi-hai");
+define("SIM_TAXI_BA","sim-taxi-ba");
+define("SIM_TAXI_BON","sim-taxi-bon");
+define("SIM_KEP","sim-kep");
+define("SIM_LAP","sim-lap");
+define("SIM_DAO","sim-dao");
+define("SIM_DOI","sim-doi");
+define("SIM_TIEN_DON","sim-tien-don");
+define("SIM_TIEN_DOI","sim-tien-doi");
+define("SIM_LOC_PHAT","sim-loc-phat");
+define("SIM_THAN_TAI","sim-than-tai");
+define("SIM_ONG_DIA","sim-ong-dia");
+define("SIM_GANH","sim-ganh");
+define("SIM_NAM_SINH","sim-nam-sinh");
+define("DAU_SO_CO","dau-so-co");
+define("SIM_KHUYEN_MAI","sim-khuyen-mai");
+
 $sub="MID(simso";
 
 //------------------------------------------------------------//

@@ -8,6 +8,9 @@
     <input type="hidden" name="goicuoc" <?php if (isset($_GET['goicuoi'])): echo 'value="'.$_GET['goicuoi'].'"'; endif;?>>
     <input type="hidden" name="sapxep" <?php if (isset($_GET['sapxep'])): echo 'value="'.$_GET['sapxep'].'"'; endif;?>>
     <input type="hidden" name="duoiso" <?php if (isset($_GET['duoiso'])): echo 'value="'.$_GET['duoiso'].'"'; endif;?>>
+    <input type="hidden" name="ngaysinh" <?php if (isset($_GET['ngaysinh'])): echo 'value="'.$_GET['ngaysinh'].'"'; endif;?>>
+    <input type="hidden" name="namsinh" <?php if (isset($_GET['namsinh'])): echo 'value="'.$_GET['namsinh'].'"'; endif;?>>
+    <input type="hidden" name="thangsinh" <?php if (isset($_GET['thangsinh'])): echo 'value="'.$_GET['thangsinh'].'"'; endif;?>>
         <tbody>
             <tr>
                 <td class="locnhanh" colspan="5">

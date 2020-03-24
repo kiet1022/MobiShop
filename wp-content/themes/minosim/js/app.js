@@ -120,9 +120,12 @@ jQuery(document).ready(function($) {
         $('#form-loc-sim').submit();
     });
 
-    $('.locduoiso').click(function(e) {
+    $('.locngaysinh').click(function(e) {
         e.preventDefault();
         $('input[name="duoiso"]').val($(this).data('value'));
+        $('input[name="ngaysinh"]').val($(this).data('display'));
+        $('input[name="namsinh"]').val($(this).data('display').split("/")[2]);
+        $('input[name="thangsinh"]').val($(this).data('display').split("/")[1]);
         $('#form-loc-sim').submit();
     });
 });
