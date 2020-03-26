@@ -32,7 +32,7 @@
 					<?php
 						global $nhaMang;
 					?>
-					<a data-toggle="collapse" href="#collapse-nha-mang" role="button" aria-expanded="false" aria-controls="collapse-nha-mang" title="<?php echo ucfirst($nhaMang); ?>" href="<?php echo home_url('/') . strtolower($nhaMang)?>"><?php echo ucfirst($nhaMang) ?> <span style="color: #c4161c;font-size: 15px">(Xem chi tiết)</span></a>
+					<a data-toggle="collapse" href="#collapse-nha-mang" role="button" aria-expanded="false" aria-controls="collapse-nha-mang" title="<?php echo ucfirst($nhaMang); ?>" href="<?php echo home_url('/') . strtolower($nhaMang)?>"><?php echo ucfirst($nhaMang) ?> <span style="color: #c4161c;font-size: 15px;font-weight: initial;">(Xem giới thiệu)</span></a>
 					</td>
 				</tr>
 
@@ -46,7 +46,7 @@
 					href="<?php echo home_url('/') . strtolower($loaithuebao)?>">
 					<?php if ($loaithuebao == 'tt') echo 'Trả trước';
 						elseif ($loaithuebao == 'ts') echo 'Trả sau';
-						else echo 'Không xác định'; ?> <span style="color: #c4161c;font-size: 15px">(Xem chi tiết)</span></a>
+						else echo 'Không xác định'; ?> <span style="color: #c4161c;font-size: 15px; font-weight: initial;">(Xem thông tin)</span></a>
 					</td>
 				</tr>
 
@@ -56,7 +56,7 @@
 					<?php
 							$goicuoc = get_post_field('goicuoc', get_the_ID());
 						?>
-						<a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" title="<?php echo $goicuoc ?>" href="<?php echo home_url('/') . strtolower($goicuoc)?>"><?php echo $goicuoc ?> <span style="color: #c4161c;font-size: 15px">(Xem chi tiết)</span></a>
+						<a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" title="<?php echo $goicuoc ?>" href="<?php echo home_url('/') . strtolower($goicuoc)?>"><?php echo $goicuoc ?> <span style="color: #c4161c;font-size: 15px;font-weight: initial;">(Xem khuyến mãi)</span></a>
 						
 						<!-- <a data-toggle="modal" data-target="#modalGoiCuoc" title="<?php echo $goicuoc ?>" href="<?php echo home_url('/') . strtolower($goicuoc)?>"><?php echo $goicuoc ?> <span style="color: #c4161c;font-size: 15px">(Xem chi tiết)</span></a> -->
 					</td>

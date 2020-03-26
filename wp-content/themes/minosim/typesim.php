@@ -36,7 +36,7 @@
 <?php
 	// Hiển thị các menu
 	for ($i = 0; $i < count($menus); $i++) { ?>
-		<div class="card mb-3" style="border: 1px solid #ededed;">
+		<div class="card my-2" style="border: 1px solid #ededed;">
 			<div class="card-header text-white sim-type">
 				<?php 
 				$menu = wp_get_nav_menu_object($menus[$i]);

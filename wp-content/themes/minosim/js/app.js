@@ -6,7 +6,7 @@ jQuery(document).ready(function($) {
 
     $("#form-loc-sim").find(":input").prop("disabled", false);
 
-    $('#form-tim-sim').on('submit', function(e) {
+    $('.form-tim-sim').on('submit', function(e) {
         e.preventDefault();
         var keyword = this.keyword.value;
         var searchUrl = '/tim-sim/';

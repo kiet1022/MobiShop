@@ -46,13 +46,14 @@ get_header();
                         $dauso = isset($_GET['dauso']) ? $_GET['dauso'] : get_post_meta(get_the_ID(), 'dauso', true );
                         $getGoiCuoc = isset($_GET['goicuoc']) ? $_GET['goicuoc'] : get_post_meta(get_the_ID(), 'goicuoc', true );
                         $duoiso = isset($_GET['duoiso']) ? $_GET['duoiso'] : get_post_meta(get_the_ID(), 'duoiso', true );
-                        echo $duoiso;
                         $namsinh = isset($_GET['namsinh']) ? $_GET['namsinh'] : '';
                         $ngaysinh = isset($_GET['ngaysinh']) ? $_GET['ngaysinh'] : '';
                     ?>
 
                     <!-- Show search sim form  -->
                     <?php get_search_sim_form(); ?>
+                    <!-- Show slider  -->
+                    <?php masterslider(1); ?>
                     <!-- Show cac menu con  -->
                     <?php get_type_sim($getLoaiSim, $getNhaMang, $dauso); ?>
                     <!-- Show menu nam sinh  -->
@@ -62,8 +63,6 @@ get_header();
                         } else if ($namsinh != '') {
                             get_menu_nam_sinh($namsinh);
                         } ?>
-                    <!-- Show slider  -->
-                    <?php masterslider(1); ?>
                     
                     <?php if (!is_front_page()):
                         $page = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
@@ -92,7 +91,8 @@ get_header();
                         'paged' => $page,
                         'update_post_term_cache' => false,
                         'update_post_meta_cache' => false,
-                        'cache_results'          => false
+                        'cache_results'          => false,
+                        'posts_per_page' => 50
                     );
 
                     $query = '';
@@ -109,7 +109,7 @@ get_header();
 
                     
                     global $loaiSim;
-                    if ($getLoaiSim && isset($loaiSim[$getLoaiSim])) {
+                    if ($getLoaiSim && isset($loaiSim[$getLoaiSim]) && !isset($_GET['ngaysinh'])) {
                         if (is_array($loaiSim[$getLoaiSim])) {
                             $query .= " AND (" . join(" AND ", $loaiSim[$getLoaiSim]) . ")";
                         } else {
@@ -141,22 +141,8 @@ get_header();
 
                     
                     if ($duoiso) {
-                        $arrduoi = explode(",", $duoiso);
-                        echo count($arrduoi);
-                        if (count($arrduoi) > 1) {
-                            $len = strlen($arrduoi[0]);
-                            $query .= " AND (RIGHT(`simso`, $len) IN (";
-                            for ($index = 0; $index < count($arrduoi); $index++) {
-                                $query .= "'".$arrduoi[$index]."'";
-                                if ($index + 1 < count($arrduoi)) {
-                                    $query .= ",";
-                                }
-                            }
-                            $query .= ")";
-                        } else {
-                            $len = strlen($duoiso);
-                            $query .= " AND (RIGHT(`simso`, $len) = $duoiso)";
-                        }
+                        $len = strlen($duoiso);
+                        $query .= " AND (RIGHT(`simso`, $len) = $duoiso)";
                     }
                     
                     $giaTu = isset($_GET['giatu']) ? $_GET['giatu'] : get_post_meta(get_the_ID(), 'giatu', true );
@@ -189,7 +175,7 @@ get_header();
                     }
                     
                     $wp_query = new WP_Query( $args );
-                    var_dump($query);
+                    // var_dump($query);
                     if ( $wp_query->have_posts() ) :
                     ?>
                         <table class="table table-striped table-bordered table-hover text-center" style="margin-bottom: 7px;">

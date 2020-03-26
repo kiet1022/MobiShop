@@ -27,9 +27,16 @@
 			<div class="container">
 				<div class="row mx-0">
 				<ul class="bg-dark top-header">
-					<li><a href="<?php echo home_url('/') ?>">Trang chủ</a></li>
+					<li>
+						<?php
+							global $rebuild_date;
+							date_default_timezone_set('Asia/Ho_Chi_Minh');
+							echo rebuild_date('l' )." ".rebuild_date('d/m/Y' );
+						?>
+					</li>
+					<!-- <li><a href="<?php echo home_url('/') ?>">Trang chủ</a></li>
 					<li>Thanh toán</li>
-					<li><a href="<?php echo admin_url(); ?>">Đăng nhập</a></li>
+					<li><a href="<?php echo admin_url(); ?>">Đăng nhập</a></li> -->
 				</ul>
 				</div>
 				<div class="header-top d-none d-md-block p-3">
@@ -83,7 +90,7 @@
 					</div>
 				</div>
 				<div id="headerMenu">
-						<a class="bg-light navbar-brand d-block d-md-none mobile-logo py-2 px-4 text-center m-0" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
+						<a class="bg-light navbar-brand d-block d-md-none mobile-logo py-3 px-4 text-center m-0" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
 							<?php
 							$logo_id = get_theme_mod( 'custom_logo' );
 							$logo_url = wp_get_attachment_image_url( $logo_id , 'full' );
@@ -98,14 +105,25 @@
 							endif;
 							?>
 						</a>
-						<nav class="navbar bg-dark navbar-expand-lg navbar-dark header-padding-mobi" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-							<div class="mx-auto d-mobile">DANH MỤC
-								<div class="navbar-text navbar-toggler navbar-toggler-right mr-2">
-									<img src="<?php echo get_template_directory_uri().'\images\menu-small.png'; ?>" alt="" srcset="">
+
+
+						<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+						<div class="col-2 px-0 text-right d-mobile" style="justify-content: center;">
+								<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+									<img style="height: 30px" src="<?php echo get_template_directory_uri().'\images\menu-small.png'; ?>" alt="" srcset="">
+								</button>
 								</div>
-							</div>
-							<div class="collapse navbar-collapse text-center" id="navbarNav">
-								<?php
+								<div class="col-10 px-0 d-mobile">
+									<form class="form-inline mx-2 my-2 my-lg-0 form-tim-sim" role="search" method="get" style="width: 100%;display: flex;flex-wrap: nowrap;">
+										<input class="form-control" type="text" placeholder="<?php echo esc_attr_x( 'Nhập số cần tìm', 'placeholder' ) ?>" value="<?php echo get_search_sim_query() ?>" name="keyword" aria-describedby="search-form" style="width: 100%;">
+										<span class="input-group-append">
+											<button class="btn btn-primary" id="search-form-header" type="submit" style="border-top-left-radius: 0;border-bottom-left-radius: 0;"><?php echo esc_attr_x( 'Search', 'submit button' ) ?></button>
+										</span>
+									</form>
+								</div>
+							
+							<div class="collapse navbar-collapse" id="navbarNav">
+							<?php
 									$args = array(
 										'theme_location' => 'primary',
 										'depth'      => 2,

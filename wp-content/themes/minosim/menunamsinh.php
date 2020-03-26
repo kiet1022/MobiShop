@@ -51,13 +51,6 @@
                     $dateDisplay = date_format(date_create($date), "d/m/Y");
                     $dateArr = (explode("/",$dateDisplay));
                     $dateUrl = join([$dateArr[0], $dateArr[1], substr($dateArr[2], -2)]);
-                    $urlWithoutZero = '';
-                    if (in_array($dateArr[0],["01","02","03","04","05","06","07","08","09"])) {
-                        $urlWithoutZero = join([(int)$dateArr[0], (int)$dateArr[1], (int)$dateArr[2]]);
-                    }
-                    if ($urlWithoutZero != '') {
-                        $dateUrl = join([$dateUrl, ",", $urlWithoutZero]);
-                    }
                     
                 ?>
                 <li class="sim-list"><a class="locngaysinh <?php if (isset($_GET['duoiso']) && $_GET['duoiso'] == $dateUrl) echo 'active'; ?>" href="#" data-value="<?php echo $dateUrl; ?>" data-display="<?php echo $dateDisplay; ?>">
