@@ -1330,7 +1330,7 @@ function remove_long($string) {
 
 function new_excerpt_more($more) {
 	global $post;
-   	return '… <a class="btn btn-primary" href="' . esc_url( get_permalink() ) . '" title="Đọc tiếp">Đọc tiếp</a>';
+   	return '… <a href="' . esc_url( get_permalink() ) . '" title="Xen thêm"><i>&gt;&gt; Xem thêm</i></a>';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 
@@ -1349,3 +1349,34 @@ function get_custom_theme_color() {
 }
 
 add_action( 'wp_head', 'get_custom_theme_color' );
+
+function bamboo_request($query_string )
+{
+    if( isset( $query_string['page'] ) ) {
+        if( ''!=$query_string['page'] ) {
+            if( isset( $query_string['name'] ) ) {
+                unset( $query_string['name'] );
+            }
+        }
+    }
+    return $query_string;
+}
+add_filter('request', 'bamboo_request');
+
+
+function bamboo_pre_get_posts( $query ) { 
+    if( $query->is_main_query() && !$query->is_feed() && !is_admin() ) { 
+        $query->set( 'paged', str_replace( '/', '', get_query_var( 'page' ) ) ); 
+    } 
+}
+add_action('pre_get_posts','bamboo_pre_get_posts');
+
+// function pm_adjust_pagination($request) {
+//     if(!empty($request['post_type']) && !empty($request['name']) && $request['paged']) {
+//         $request['page'] = $request['paged'];
+//         unset($request['paged']);
+//     }
+
+//     return $request;
+// }
+// add_filter('request', 'pm_adjust_pagination', 99);

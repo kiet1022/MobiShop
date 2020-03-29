@@ -31,7 +31,7 @@
 						<?php
 							global $rebuild_date;
 							date_default_timezone_set('Asia/Ho_Chi_Minh');
-							echo rebuild_date('l' )." ".rebuild_date('d/m/Y' );
+							echo rebuild_date('l' ).", ".rebuild_date('d/m/Y' );
 						?>
 					</li>
 					<!-- <li><a href="<?php echo home_url('/') ?>">Trang chủ</a></li>

@@ -26,7 +26,7 @@ $nhaMang = getTenNhaMang(get_the_title(), true);
 
 global $post;
 // $image = home_url('/') . $nhaMang . '/' . $post->price . '/' . $post->post_title . '.jpg';
-$image = "https://mobishop.vn/" . $nhaMang . '/' . $post->price . '/' . $post->post_title . '.jpg';
+$image = home_url('/') . $nhaMang . '/' . $post->price . '/' . $post->post_title . '.jpg';
 function filter_wpseo_opengraph_image( $img ) {
     global $image;
     return $image;

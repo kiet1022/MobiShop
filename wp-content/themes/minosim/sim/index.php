@@ -1,5 +1,7 @@
 <?php
     include '../config.php';
+    echo "123";
+    die();
     $number = $_GET['sim'];
     $gia = $_GET['gia'];
     $loai = 'Loại sim: ' . getLoaiSim($number);

@@ -39,6 +39,25 @@
 				'after'  => '</div>',
 			) );
 		?>
+		<hr>
+		<h1 class="entry-title">Bài viết cùng chuyên mục</h1>
+		<?php
+			$related = new WP_Query(
+				array(
+					'category__in'   => wp_get_post_categories( $post->ID ),
+					'posts_per_page' => 3,
+					'post__not_in'   => array( $post->ID )
+				)
+			);
+			
+			if( $related->have_posts() ) { 
+				while( $related->have_posts() ) { 
+					$related->the_post(); 
+					get_template_part( 'template-parts/content', get_post_format() );
+				}
+				wp_reset_postdata();
+			}
+		?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
