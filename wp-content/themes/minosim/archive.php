@@ -16,10 +16,6 @@ get_header(); ?>
 				<h1 id="category-name"><?php single_cat_title(); ?></h1>
                 <?php
                 $term = get_queried_object();
-                $page = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
-                echo $page;
-                die();
-                // $page = get_query_var( 'page' ) ? get_query_var( 'page' ) : 1;
                 $args = array(
                     'tax_query' => array(
                         array (
@@ -34,10 +30,9 @@ get_header(); ?>
                     'update_post_term_cache' => false,
                     'update_post_meta_cache' => false,
                     'cache_results'          => false,
-                    'posts_per_page' => 2
+                    'posts_per_page' => 6
                 );
                 $wp_query = new WP_Query( $args );
-                // var_dump($wp_query);
                 if ( $wp_query->have_posts() ) :
 
                     while ( $wp_query->have_posts() ) : $wp_query->the_post();
@@ -46,7 +41,7 @@ get_header(); ?>
 
                     endwhile;
 
-                    wpbs_pagination();
+                    // wpbs_pagination();
 
                 else :
 

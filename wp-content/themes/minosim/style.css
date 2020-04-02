@@ -4,7 +4,7 @@ Theme URI: https://mino.vn
 Author: Mino
 Author URI: https://mino.vn
 Description: Mino sim
-Version: 1.0.2
+Version: 1.0.3
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: minosim
@@ -590,6 +590,14 @@ table tbody tr td {
     padding-bottom: 8px
 }
 
+.d-mobile-news {
+    display: none;
+}
+
+.d-wide-screen-news {
+    display: block;
+}
+
 
 /* 
   ##Device = Most of the Smartphones Mobiles (Portrait)
@@ -609,6 +617,12 @@ table tbody tr td {
     }
     .d-mobile {
         display: block;
+    }
+    .d-mobile-news {
+        display: block;
+    }
+    .d-wide-screen-news {
+        display: none;
     }
     .header-padding-mobi {
         padding: .5rem 0 0.5rem 0 !important;
@@ -639,8 +653,11 @@ table tbody tr td {
 */
 
 @media (min-width: 576px) and (max-width: 767px) {
-    #primary {
+    /* #primary {
         padding: 10px 10px 0 10px;
+    } */
+    .content-area {
+        padding-right: 15px !important;
     }
     #sidebar-right {
         padding: 10px 10px 0 10px;
@@ -669,6 +686,12 @@ table tbody tr td {
     .d-mobile {
         display: flex;
     }
+    .d-mobile-news {
+        display: block;
+    }
+    .d-wide-screen-news {
+        display: none;
+    }
     .search-sim-form {
         display: none;
     }
@@ -681,8 +704,11 @@ table tbody tr td {
 */
 
 @media (min-width: 768px) and (max-width: 991px) {
-    #primary {
+    /* #primary {
         padding: 10px 10px 0 10px;
+    } */
+    .content-area {
+        padding-right: 15px !important;
     }
     #sidebar-right {
         padding: 10px 10px 0 10px;
