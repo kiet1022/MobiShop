@@ -1364,12 +1364,12 @@ function bamboo_request($query_string )
 add_filter('request', 'bamboo_request');
 
 
-function bamboo_pre_get_posts( $query ) { 
-    if( $query->is_main_query() && !$query->is_feed() && !is_admin() ) { 
-        $query->set( 'paged', str_replace( '/', '', get_query_var( 'page' ) ) ); 
-    } 
-}
-add_action('pre_get_posts','bamboo_pre_get_posts');
+// function bamboo_pre_get_posts( $query ) { 
+//     if( $query->is_main_query() && !$query->is_feed() && !is_admin() ) { 
+//         $query->set( 'paged', str_replace( '/', '', get_query_var( 'page' ) ) ); 
+//     } 
+// }
+// add_action('pre_get_posts','bamboo_pre_get_posts');
 
 // function pm_adjust_pagination($request) {
 //     if(!empty($request['post_type']) && !empty($request['name']) && $request['paged']) {

@@ -208,11 +208,11 @@ get_header();
 
                     endif; ?>
                     <?php
-                        wp_reset_postdata();
-                        wp_reset_query();
-                        while ( have_posts() ) : the_post();
-                            the_content();
-                        endwhile;
+                        // wp_reset_postdata();
+                        // wp_reset_query();
+                        // while ( have_posts() ) : the_post();
+                        //     the_content();
+                        // endwhile;
                     ?>
                 </main><!-- #main -->
             </div><!-- #primary -->
