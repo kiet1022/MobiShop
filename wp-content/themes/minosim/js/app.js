@@ -1,4 +1,5 @@
 jQuery(document).ready(function($) {
+
     $("#form-loc-sim").submit(function() {
         $(this).find(":input").filter(function() { return !this.value; }).attr("disabled", "disabled");
         return true;
@@ -81,8 +82,9 @@ jQuery(document).ready(function($) {
         }
     });
 
-    $('.locnhamang').click(function() {
+    $('.locnhamang').click(function(e) {
         $('input[name="nhamang"]').val($(this).data('value'));
+        $('input[name="dauso"]').val("");
         $('#form-loc-sim').submit();
     });
 
@@ -120,6 +122,11 @@ jQuery(document).ready(function($) {
         $('#form-loc-sim').submit();
     });
 
+    $('.locdauso').click(function() {
+        $('input[name="dauso"]').val($(this).data('value').trim());
+        $('#form-loc-sim').submit();
+    });
+
     $('.locngaysinh').click(function(e) {
         e.preventDefault();
         $('input[name="duoiso"]').val($(this).data('value'));
@@ -128,6 +135,8 @@ jQuery(document).ready(function($) {
         $('input[name="thangsinh"]').val($(this).data('display').split("/")[1]);
         $('#form-loc-sim').submit();
     });
+
+    checkShowFilter();
 });
 
 function openCity(evt, cityName) {
@@ -147,4 +156,29 @@ function openCity(evt, cityName) {
     // Show the current tab, and add an "active" class to the link that opened the tab
     document.getElementById(cityName).style.display = "flex";
     evt.currentTarget.className += " active";
+}
+
+// Check nhập chữ tại ô tìm kiếm sim
+function CheckKey(e) {
+    var t = /^[0-9*]$/;
+    t.test(e.value) || (e.value = e.value.replace(/[^0-9.xX*]/g, ""))
+}
+
+// Check hiển thị filter lọc thêm
+function checkShowFilter() {
+    console.log('Checking');
+
+    var giatuEl = document.getElementsByName("giatu")[0];
+    var giadenEl = document.getElementsByName("giaden")[0];
+    if (giadenEl !== undefined && giadenEl !== undefined) {
+        var giatu = giatuEl.value;
+        var giaden = giadenEl.value;
+        if (giatu && giaden) {
+            document.getElementsByClassName("locthem")[0].style.display = "table-row";
+        } else if (giatu && !giaden) {
+            document.getElementsByClassName("locthem")[0].style.display = "table-row";
+        } else if (giaden && !giatu) {
+            document.getElementsByClassName("locthem")[0].style.display = "table-row";
+        }
+    }
 }

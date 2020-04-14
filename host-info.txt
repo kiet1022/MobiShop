@@ -1,0 +1,15 @@
+define('DB_NAME', "lmobish87nv_main");
+
+/** MySQL database username */
+define('DB_USER', "lmobish87nv_main");
+
+/** MySQL database password */
+define('DB_PASSWORD', "ayr\$[,WG?VVO");
+
+/** MySQL hostname */
+define('DB_HOST', "localhost");
+
+/** Database Charset to use in creating database tables. */
+define('DB_CHARSET', 'utf8mb4');
+
+MobifoneTA@12

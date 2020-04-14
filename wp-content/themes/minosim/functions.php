@@ -338,6 +338,12 @@ function get_type_sim($typesim = '', $nhamang = '', $dauso= '')
     echo $form;
 }
 
+function get_loc_dau_so($nhamang = ''){
+    ob_start();
+    require('locdauso.php');
+    $form = ob_get_clean();
+    echo $form;
+}
 function get_menu_nam_sinh($namsinh = '')
 {
     ob_start();

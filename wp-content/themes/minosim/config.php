@@ -408,7 +408,7 @@ function getLoaiSim($so = '', $goicuoc = '') {
         return "Sim đặt biệt";
     }
 
-    return "Sim giá rẻ";
+    return "Sim số chọn";
 }
 
 function rebuild_date( $format, $time = 0 )

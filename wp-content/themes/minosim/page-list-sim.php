@@ -83,7 +83,11 @@ get_header();
                     ?>
                     <?php endif; ?>
 
-                    <?php get_filter_sim_form($getGoiCuoc); ?>
+                    <?php 
+                        if (!is_front_page() || $page > 1) {
+                            get_filter_sim_form($getGoiCuoc);
+                        }
+                    ?>
                     <?php
                     $args = array(
                         'post_type' => 'sim',
@@ -178,6 +182,7 @@ get_header();
                     // var_dump($query);
                     if ( $wp_query->have_posts() ) :
                     ?>
+                        <div style="width: 100%; overflow-x: auto;">
                         <table class="table table-striped table-bordered table-hover text-center" style="margin-bottom: 7px;">
                             <thead>
                                 <tr>
@@ -200,6 +205,7 @@ get_header();
                     ?>
                             </tbody>
                         </table>
+                        </div>
                     <?php
                         wpbs_pagination();
                     else :

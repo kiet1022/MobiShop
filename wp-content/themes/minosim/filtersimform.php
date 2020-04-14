@@ -8,6 +8,7 @@
     <input type="hidden" name="goicuoc" <?php if (isset($_GET['goicuoi'])): echo 'value="'.$_GET['goicuoi'].'"'; endif;?>>
     <input type="hidden" name="sapxep" <?php if (isset($_GET['sapxep'])): echo 'value="'.$_GET['sapxep'].'"'; endif;?>>
     <input type="hidden" name="duoiso" <?php if (isset($_GET['duoiso'])): echo 'value="'.$_GET['duoiso'].'"'; endif;?>>
+    <input type="hidden" name="dauso" <?php if (isset($_GET['dauso'])): echo 'value="'.$_GET['dauso'].'"'; endif;?>>
     <input type="hidden" name="ngaysinh" <?php if (isset($_GET['ngaysinh'])): echo 'value="'.$_GET['ngaysinh'].'"'; endif;?>>
     <input type="hidden" name="namsinh" <?php if (isset($_GET['namsinh'])): echo 'value="'.$_GET['namsinh'].'"'; endif;?>>
     <input type="hidden" name="thangsinh" <?php if (isset($_GET['thangsinh'])): echo 'value="'.$_GET['thangsinh'].'"'; endif;?>>
@@ -16,8 +17,9 @@
                 <td class="locnhanh" colspan="5">
                     <ul>
                     <?php if (!get_post_meta(get_the_ID(), 'nhamang', true)):?>
+                        <!-- Begin Lọc theo nhà mạng  -->
                         <li>
-                        <?php if (isset($_GET['nhamang'])): echo $_GET['nhamang']; else: echo 'Nhà mạng'; endif;?>
+                        <?php if (isset($_GET['nhamang'])): echo ucfirst($_GET['nhamang']); else: echo 'Nhà mạng'; endif;?>
                             <ul id="loc-1">
                                 <li class="locnhamang" data-value="">Tất cả các mạng</li>
                                 <li class="locnhamang" data-value="viettel">Viettel</li>
@@ -28,9 +30,25 @@
                                 <li class="locnhamang" data-value="itelecom">Itelecom</li>
                             </ul>
                         </li>
+                        <!-- End Lọc theo nhà mạng  -->
                     <?php endif;?>
+                    
+                    <!-- Begin Lọc theo đầu số  -->
+                    <?php if(isset($_GET['nhamang']) || get_post_meta(get_the_ID(), 'nhamang', true)): ?>
+                        <li><?php if(isset($_GET['dauso'])): echo 'Đầu '.$_GET['dauso']; else: echo 'Đầu số'; endif; ?>
+                            <?php
+                                if(isset($_GET['nhamang'])):
+                                    get_loc_dau_so($_GET['nhamang']);
+                                elseif(get_post_meta(get_the_ID(), 'nhamang', true)):
+                                    get_loc_dau_so(get_post_meta(get_the_ID(), 'nhamang', true));
+                                endif;
+                            ?>
+                        </li>
+                    <?php endif; ?>
+                    <!-- Begin Lọc theo đầu số  -->
 
-                    <?php if (!get_post_meta(get_the_ID(), 'loaisim', true)):?>
+                    <!-- Begin Lọc theo đầu số  -->
+                    <?php if (!get_post_meta(get_the_ID(), 'loaisim', true) || get_post_meta(get_the_ID(), 'loaisim')[0] == 'sim-khuyen-mai'):?>
                         <li>
                         <?php if (isset($_GET['loaisim']) && $_GET['loaisim'] == '' || !isset($_GET['loaisim'])): echo 'Loại sim'; endif;?>
                         <?php if (isset($_GET['loaisim']) && $_GET['loaisim'] == 'sim-tu-quy'): echo 'Tứ quý'; endif;?>
@@ -78,8 +96,18 @@
                             </ul>
                         </li>
                     <?php endif;?>
-
-                    <?php if (!get_post_meta(get_the_ID(), 'giatu', true) && !get_post_meta(get_the_ID(), 'giaden', true)):?>
+                    <!-- Begin Lọc theo đầu số  -->
+                    
+                        <li id="locthem">
+                            Lọc thêm
+                        </li>
+                    </ul>
+                </td>
+            <tr class="locthem" <?php echo (!isset($_GET['loaithuebao']) && !isset($_GET['sapxep']) && !isset($_GET['goicuoc']) &&  $getGoiCuoc == '') ? 'style="display: none"' : 'style="display: table-row"'?>>
+                <td class="locnhanh" colspan="5">
+                    <ul>
+                        <!-- Begin Lọc khoảng giá  -->
+                        <?php if (!get_post_meta(get_the_ID(), 'giatu', true) && !get_post_meta(get_the_ID(), 'giaden', true)):?>
                         <li>
                         <?php if (isset($_GET['giaden']) && $_GET['giaden'] == '500000'): echo 'Dưới 500k'; endif;?>
                         <?php if (isset($_GET['giatu']) && isset($_GET['giaden']) && $_GET['giatu'] == '500000' && $_GET['giaden'] == '1000000'): echo '500k - 1tr'; endif;?>
@@ -110,15 +138,10 @@
                                 <li class="lockhoanggia" data-value="1000000000,">Trên 1 tỷ</li>
                             </ul>
                         </li>
-                    <?php endif;?>
-                        <li id="locthem">
-                            Lọc thêm
-                        </li>
-                    </ul>
-                </td>
-            <tr class="locthem" <?php echo (!isset($_GET['loaithuebao']) && !isset($_GET['sapxep']) && !isset($_GET['goicuoc']) &&  $getGoiCuoc == '') ? 'style="display: none"' : 'style="display: table-row"'?>>
-                <td class="locnhanh" colspan="5">
-                    <ul>
+                        <?php endif;?>
+                        <!-- End Lọc khoảng giá  -->
+                        
+                        <!-- Begin Lọc thuê bao  -->
                         <li>
                         <?php if((isset($_GET['loaithuebao']) && $_GET['loaithuebao'] == '') || !isset($_GET['loaithuebao'])):echo 'Thuê bao'; endif;?>
                         <?php if((isset($_GET['loaithuebao']) && $_GET['loaithuebao'] == 'tt')):echo 'Trả trước'; endif;?>
@@ -129,6 +152,9 @@
                                 <li class="locthuebao" data-value="ts">Trả sau</li>
                             </ul>
                         </li>
+                        <!-- End Lọc thuê bao  -->
+
+                        <!-- Begin Lọc Khuyến mãi  -->
                         <li>
                         <?php if(isset($_GET['goicuoc'])): echo $_GET['goicuoc']; elseif (isset($getGoiCuoc) && $getGoiCuoc != ''): echo $getGoiCuoc; else: echo 'Khuyến mãi'; endif;?>
                             <ul id="loc-1">
@@ -144,9 +170,11 @@
                                     echo '<li class="lockhuyenmai" data-value="'.strtolower($value['goicuoc']).'">'.strtolower($value['goicuoc']).'</li>';
                                 }
                             ?>
-                            
                             </ul>
                         </li>
+                        <!-- End Lọc Khuyến mãi  -->
+
+                        <!-- Begin Sắp xếp  -->
                         <li>
                         <?php if (isset($_GET['sapxep']) && $_GET['sapxep'] == 1): echo 'Thấp đến cao'; endif;?>
                         <?php if (isset($_GET['sapxep']) && $_GET['sapxep'] == 2): echo 'Cao đến thấp'; endif;?>
@@ -159,6 +187,7 @@
                                 <li class="sapxep" data-value="3">Số mới cập nhật</li>
                             </ul>
                         </li>
+                        <!-- End Sắp xếp  -->
                     </ul>
                 </td>
             </tr>

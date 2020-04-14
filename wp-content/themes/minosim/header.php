@@ -96,7 +96,8 @@
 							$logo_url = wp_get_attachment_image_url( $logo_id , 'full' );
 							if ($logo_url):
 							?>
-							<img style="max-height: 45px;" src="<?php echo wp_upload_dir()['baseurl'].'/2020/02/cropped-mobi_shop22-1-1.png'; ?>" alt="<?php bloginfo( 'name' ); ?>">
+							<!-- <img style="max-height: 45px;" src="<?php echo wp_upload_dir()['baseurl'].'/2020/02/cropped-mobi_shop22-1-1.png'; ?>" alt="<?php bloginfo( 'name' ); ?>"> -->
+							<img class="img-fluid" src="<?php echo esc_url( $logo_url ); ?>" alt="<?php bloginfo( 'name' ); ?>">
 							<?php
 							else:
 							?>
@@ -115,7 +116,7 @@
 								</div>
 								<div class="col-10 px-0 d-mobile">
 									<form class="form-inline mx-2 my-2 my-lg-0 form-tim-sim" role="search" method="get" style="width: 100%;display: flex;flex-wrap: nowrap;">
-										<input class="form-control" type="text" placeholder="<?php echo esc_attr_x( 'Nhập số cần tìm', 'placeholder' ) ?>" value="<?php echo get_search_sim_query() ?>" name="keyword" aria-describedby="search-form" style="width: 100%;">
+										<input onkeyup="CheckKey(this)" class="form-control" type="tel" placeholder="<?php echo esc_attr_x( 'Nhập số cần tìm', 'placeholder' ) ?>" value="<?php echo get_search_sim_query() ?>" name="keyword" aria-describedby="search-form" style="width: 100%;">
 										<span class="input-group-append">
 											<button class="btn btn-primary" id="search-form-header" type="submit" style="border-top-left-radius: 0;border-bottom-left-radius: 0;"><?php echo esc_attr_x( 'Search', 'submit button' ) ?></button>
 										</span>

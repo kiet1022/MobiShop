@@ -1,13 +1,12 @@
 <?php
     include '../config.php';
-    echo "123";
-    die();
     $number = $_GET['sim'];
     $gia = $_GET['gia'];
-    $loai = 'Loại sim: ' . getLoaiSim($number);
-    $site = 'Website: mobishop.vn';
+    $loaiSim = getLoaiSim($number) == "Sim giá rẻ" ? "Sim số chọn" : getLoaiSim($number);
+    $loai = 'Loại sim: ' . $loaiSim;
+    // $site = 'Website: mobishop.vn';
     $network = $_GET['network'];
-    $type = 'Giá: ' . number_format($gia) . ' đ';
+    // $type = 'Giá: ' . number_format($gia) . ' đ';
     //Set the Content Type
     header('Content-type: image/jpeg');
 
@@ -34,10 +33,10 @@
     //imagecopy($jpg_image, $logo, imagesx($jpg_image) - $sx - $marge_right, imagesy($jpg_image) - $sy - $marge_bottom, 0, 0, imagesx($logo), imagesy($logo));
 
     // Print Text On Image
-    imagettftext($jpg_image, 20, 0, 220, 135, $white, $font_path, $number);
-    imagettftext($jpg_image, 16, 0, 220, 165, $white, $font_path, $type);
-    imagettftext($jpg_image, 16, 0, 220, 195, $white, $font_path, $loai);
-    imagettftext($jpg_image, 16, 0, 220, 225, $white, $font_path, $site);
+    imagettftext($jpg_image, 16, 0, 230, 165, $white, $font_path, $loai);
+    imagettftext($jpg_image, 20, 0, 230, 195, $white, $font_path, $number);
+    // imagettftext($jpg_image, 16, 0, 220, 165, $white, $font_path, $type);
+    // imagettftext($jpg_image, 16, 0, 220, 225, $white, $font_path, $site);
 
     // Send Image to Browser
     imagejpeg($jpg_image);
