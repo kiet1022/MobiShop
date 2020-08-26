@@ -648,6 +648,9 @@ table tbody tr td {
     .search-sim-form {
         display: none;
     }
+    .entry-content {
+        padding: 10px;
+    }
 }
 
 
@@ -699,6 +702,15 @@ table tbody tr td {
     .search-sim-form {
         display: none;
     }
+    h1.entry-title {
+        padding-top: 10px;
+    }
+    #category-name {
+        padding-top: 10px;
+    }
+    .entry-content {
+        padding: 10px;
+    }
 }
 
 
@@ -743,6 +755,15 @@ table tbody tr td {
     }
     .search-sim-form {
         display: none;
+    }
+    h1.entry-title {
+        padding-top: 10px;
+    }
+    #category-name {
+        padding-top: 10px;
+    }
+    .entry-content {
+        padding: 10px;
     }
 }
 
@@ -793,11 +814,6 @@ table tbody tr td {
     font-weight: bold;
     color: #ffb851;
 }
-
-
-/* .entry-header {
-    margin-top: 10px;
-} */
 
 .pagination.ft-wpbs {
     margin-bottom: 7px;

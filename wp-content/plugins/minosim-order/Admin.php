@@ -198,7 +198,7 @@ class MinoSimOrderAdmin
                 ?>
                     <tr>
                         <th scope="row">
-                            <?php echo isset(MINOSIM_ORDER_LABEL[$key]) ? MINOSIM_ORDER_LABEL[$key] : ''; ?>
+                            <?php $label = MINOSIM_ORDER_LABEL[$key]; if (isset($label)) : echo $label; else: echo ''; endif; ?>
                         </th>
                         <td>
                             <?php
